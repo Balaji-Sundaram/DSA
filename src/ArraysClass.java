@@ -176,13 +176,39 @@ class ArrayListProject{
 class HashMapProject{
     public static void main (String[] args){
         System.out.println("Hash Value found...!");
-        HashMap<String,Integer> hashMap = new HashMap<>();
-        hashMap.put("hey", 1);
-        hashMap.putIfAbsent("heyy", 1); //works for key, if the key is existing, then it won't add, if not, it will add.
+        HashMap<Integer,String> hashMap = new HashMap<>();
+        hashMap.put(1, "Weeknd");
+        hashMap.putIfAbsent(1, "heyy"); //works for key, if the key is existing, then it won't add, if not, it will add.
         System.out.println(hashMap.toString());
-        System.out.println(hashMap.getOrDefault("heyy", 5)); // this is like kind of switch default, if the key found it will print the key value of the map, else will print the default that you defined
+        System.out.println(hashMap.getOrDefault(5,"heyy")); // this is like kind of switch default, if the key found it will print the key value of the map, else will print the default that you defined
+        HashMap<Integer, String > hashMap1 = hashMap;//here it will copy, but if you modufy anything in the old, it will reflect in the new map also, it will be wise versa.
+        hashMap.put(2,"bilie eilish");
+        hashMap1.put(3,"eminem");
+        System.out.println(hashMap1+"\n"+hashMap);
+        HashMap<Integer, String> hashMap2 = (HashMap<Integer, String>) hashMap1.clone();
+        hashMap2.put(4, "Drake");
+        hashMap2.put(5,"tupac");
+        hashMap2.put(6,"Dr.Dre");
+        hashMap2.put(7,"Snoop Dogg");
+        hashMap2.put(8,"Dua Lipa");
+        hashMap2.put(9,"Michael Jackson");
+        hashMap2.put(10,"Ice Cube");
+        hashMap2.put(11,"The Notorious B.I.G.   ");
+        hashMap2.put(12,"DMX");
+        System.out.println(hashMap2.toString().replace(",","\n"));
+        //Work with lambdas
+        //foreach
+        hashMap2.forEach((key , value) -> {
+            if(value.equalsIgnoreCase("dmx")){
+                System.out.println("Value Found " +value);
+                hashMap2.replace(key, "Lana Del Ray");
+            }
+        });
 
-        
+        System.out.println(hashMap2.toString().replace(",","\n"));
+
+
+
 
     }
 }
